@@ -11,7 +11,7 @@ SHOME = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 def logit(level, message):
     now = datetime.datetime.utcnow().isoformat()
     log_msg = "{logtime} - [{level}] - {msg}".format(logtime=now, level=level.upper(), msg=message)
-    print log_msg
+    #print log_msg
     with open(os.path.join(SHOME, 'logs', 'snapshotter-{}.log'.format(datetime.datetime.utcnow().strftime('%Y-%m-%d'))), 'a+') as f:
         f.write("%s\n" % log_msg)
 
