@@ -1,0 +1,5 @@
+env/*
+*.pyc
+*.swp
+config.yaml
+logs/*.log

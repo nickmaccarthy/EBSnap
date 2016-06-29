@@ -1,0 +1,40 @@
+# Account credentials by name
+accounts:
+    'account1-prod': 
+        name: 'account1'
+        access_key: 'AWS_ACCESS_KEY'
+        access_secret: 'AWS_ACCES_SECRET'
+    'account2':
+        name: 'account2'
+        access_key: 'AWS_ACCESS_KEY'
+        access_secret: 'AWS_ACCES_SECRET'
+
+# AWS instances to do EBS back up on
+instances:
+    'account1-prod': # account name where instances reside
+        'us-east-1': # region where instances in account reside
+            -
+                # name of the instance, as derived from tags:Name
+                name: 'mongodb1'
+                # retention time period.  This is derived from the datemath module
+                # please see the following for more information on time periods
+                # https://github.com/nickmaccarthy/python-datemath
+                retention: '7d'
+            - 
+                name: 'mongodb2'
+                retention: '7d'
+            - 
+                name: 'mongodb3'
+                retention: '7d'
+    'account2': 
+        'us-west-2':
+            -
+                name: 'cassandradb1'
+                retention: '30d'
+
+
+
+# Publish errors to SNS?
+sns_publish: true
+# ARN for SNS topic
+sns_arn: 'arn:aws:sns:us-east-1:xxxxx:arn-name'
