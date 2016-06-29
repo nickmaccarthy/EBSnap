@@ -69,9 +69,9 @@ def make_snapshots():
         for i in res_instances:
             volumes = conn.get_all_volumes(filters={'attachment.instance_id': i.id})
             for volume in volumes:
-                snapshot = conn.create_snapshot(volume.id, 'EBS snapshot for %s on volume: %s on %s' % (instance['name'], volume.id, today))
+                snapshot = conn.create_snapshot(volume.id, '%s - %s - EBS snapshot for %s' % (instance['name'], today, volume.id))
                 if snapshot:
-                    logit('info', '%s - %s on volume: %s, volume_size: %sGB, snapid: %s' % (today, instance['name'], volume.id, volume.size, snapshot.id))
+                    logit('info', 'Snapshot Created: %s - %s on volume: %s, volume_size: %sGB, snapid: %s' % (today, instance['name'], volume.id, volume.size, snapshot.id))
                 else:
                     error_msg = 'Unable to create EBS snapshot for %s on volume: %s on %s' % (instance['name'], volume.id, today)
                     logit('error', error_msg)
