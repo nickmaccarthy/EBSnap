@@ -14,7 +14,7 @@ A tool to help automate EBS snapshots for EC2 instances across your AWS accounts
 ### Set up
 1. Git clone this repo to a directory of your choice
 2. Using config.yaml.example, create a config.yaml and pouplate it with your relevant AWS info and instances you wish to run EBS snapshots on
-3. create the virtualenv ```virtualenv env && pip install -r requirements.txt```
+3. create the virtualenv ```virtualenv env && source env/bin/activate && pip install -r requirements.txt```
 4. run it ```fab ebsnap```
 
 Protip: Set this up on a cron job so it can run every day at midnight or time of your choosing.
