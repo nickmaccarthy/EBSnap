@@ -104,5 +104,6 @@ def curate_snapshots():
 
 @task 
 def ebsnap():
+    ''' runs both make_snapshots() and curate_snapshots() '''
     make_snapshots()
     curate_snapshots()
