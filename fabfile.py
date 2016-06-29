@@ -71,7 +71,7 @@ def make_snapshots():
             for volume in volumes:
                 snapshot = conn.create_snapshot(volume.id, 'EBS snapshot for %s on volume: %s on %s' % (instance['name'], volume.id, today))
                 if snapshot:
-                    logit('info', '%s - %s on volume: %s, snapid: %s' % (today, instance['name'], volume.id, snapshot.id))
+                    logit('info', '%s - %s on volume: %s, volume_size: %sGB, snapid: %s' % (today, instance['name'], volume.id, volume.size, snapshot.id))
                 else:
                     error_msg = 'Unable to create EBS snapshot for %s on volume: %s on %s' % (instance['name'], volume.id, today)
                     logit('error', error_msg)
