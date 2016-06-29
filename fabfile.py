@@ -96,7 +96,7 @@ def curate_snapshots():
                     if snapshot_create_time < retention_time:
                         try:
                             conn.delete_snapshot(snapshot.id)
-                            logit('info', 'EBS snapshot %s/%s deleted for %s/%s on instance: %s, because it was older than %s old' % ( snapshot.id, volume.id, instance['region'], instance['name'], retention_time))
+                            logit('info', 'EBS snapshot %s/%s deleted for %s/%s, because it was older than %s old' % ( snapshot.id, volume.id, instance['region'], instance['name'], retention_time))
                         except Exception as e:
                             error_msg = 'Unable to delete EBS snapshot: reson: %s, id: %s, volume: %s, host: %s, region: %s' % ( e, snapshot.id, volume.id, instance['name'], instance['region'] )
                             logit('error', error_msg)
