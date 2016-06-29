@@ -18,7 +18,7 @@ A tool to help automate EBS snapshots for EC2 instances across your AWS accounts
 4. run it ```fab ebsnap```
 
 Protip: Set this up on a cron job so it can run every day at midnight or time of your choosing.
- ```* 0 * * * cd /opt/tools/EBSnap; env/bin/fab ebsnap```
+* ```* 0 * * * cd /opt/tools/EBSnap; env/bin/fab ebsnap```
 
 ### Requirements
 * python 2.7
